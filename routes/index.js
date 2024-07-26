@@ -4,7 +4,6 @@ const User = require("../module&schema/module.schema");
 const bcrypt = require("bcryptjs");
 const generate = require("../utils/utils.index");
 const verifiedToken = require("../middleware/middleware.index");
-const { decrypt } = require("dotenv");
 
 // localhost:3500/api/user
 Router.post("/user", async (req, res) => {

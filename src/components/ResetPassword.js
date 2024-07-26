@@ -14,26 +14,35 @@ const Reset_Password = () => {
   const [email, setEmail] = useState('')
   
   const handlePasswordCheck = () => {
-    axios.post("http://localhost:3500/api/reset-password",{email})
-      .then(res => res.data)
-      .then(result => {
-        alert(`Copy this code : ${result.token} and paste it with your updated Password to reset it.`)
-          divRef.current.style.display="block";
-          formRef.current.style.display='none';
+    axios
+      .post("https://password-reset-flow-fsd.onrender.com/api/reset-password", {
+        email,
       })
-      .catch(err=>console.log(err.message))
+      .then((res) => res.data)
+      .then((result) => {
+        alert(
+          `Copy this code : ${result.token} and paste it with your updated Password to reset it.`
+        );
+        divRef.current.style.display = "block";
+        formRef.current.style.display = "none";
+      })
+      .catch((err) => console.log(err.message));
   }
 
   const handlePasswordChange = () => {
-    axios.post(`http://localhost:3500/api/reset-password/${token}`, { password: newPass })
-      .then(response => response.data)
-      .then(result => {
-        alert(`${result.message}`)
-        navigate('/')
+    axios
+      .post(
+        `https://password-reset-flow-fsd.onrender.com/api/reset-password/${token}`,
+        { password: newPass }
+      )
+      .then((response) => response.data)
+      .then((result) => {
+        alert(`${result.message}`);
+        navigate("/");
       })
-      .catch(err => {
-        alert(err.message)
-      })
+      .catch((err) => {
+        alert(err.message);
+      });
   }
 
     return (

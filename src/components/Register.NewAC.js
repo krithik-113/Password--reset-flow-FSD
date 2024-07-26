@@ -32,19 +32,20 @@ const RegisterNewAC = () => {
       errPass = "*Required";
       setErrPass(errPass)
     } else {
-       axios.post("http://localhost:3500/api/user", {
+       axios
+         .post("https://localhost:3500/api/user", {
            email: email,
            password: pass,
-       }).then(res => {
-         if (res.data.message === "User already Exists") {
-           alert(res.data.message)
-         } else {
-           alert('Successfully SignUp')
-           setEmail("");
-           setPass("");
-           navigate("/");
-         }
-         
+         })
+         .then((res) => {
+           if (res.data.message === "User already Exists") {
+             alert(res.data.message);
+           } else {
+             alert("Successfully SignUp");
+             setEmail("");
+             setPass("");
+             navigate("/");
+           }
          })
          .catch((err) => console.log(err));
     }

@@ -1,35 +1,37 @@
-import axios from 'axios';
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import axios from "axios";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const [innemail, setInnEmail] = useState("");
   const [innpass, setInnPass] = useState("");
-  const API_URL = "http://localhost:3500/api/authenticate"; //POST
+  const API_URL =
+    "http://localhost:3500/api/authenticate"; //POST
 
   let [errEmail, setErrEmail] = useState("");
   let [errPass, setErrPass] = useState("");
 
   const handleCompare = () => {
-    axios.post(API_URL, {
-      email: innemail,
-      password:innpass
-    })
-      .then(res => {
-        console.log(res.data)
-        setInnEmail('')
-        setInnPass('')
-        alert('Successfully Login!')
-        setErrEmail('')
-        setErrPass('')
+    axios
+      .post(API_URL, {
+        email: innemail,
+        password: innpass,
       })
-      .catch(err => {
-        console.log(err.message)
-        errEmail = 'Username or Password Incorrect'
+      .then((res) => {
+        console.log(res.data);
+        setInnEmail("");
+        setInnPass("");
+        alert("Successfully Login!");
+        setErrEmail("");
+        setErrPass("");
+      })
+      .catch((err) => {
+        console.log(err.message);
+        errEmail = "Username or Password Incorrect";
         errPass = "Username or Password Incorrect";
-        setErrEmail(errEmail)
-        setErrPass(errPass)
-      })
+        setErrEmail(errEmail);
+        setErrPass(errPass);
+      });
   };
 
   return (
@@ -82,4 +84,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage
+export default LoginPage;
