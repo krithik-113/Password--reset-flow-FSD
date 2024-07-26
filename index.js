@@ -24,6 +24,6 @@ async function Mongoose_Conect_DB() {
   }
 }
 
-app.listen(3500, () => {
+app.listen(3500, '0.0.0.0',() => {
   console.log("Server is running in port 3500");
 });
