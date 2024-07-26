@@ -14,11 +14,14 @@ app.use("/api", require("./routes/index"));
 
 Mongoose_Conect_DB().catch((err) => console.log(err));
 async function Mongoose_Conect_DB() {
-  await mongoose.connect(DB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  });
-  console.log("Database Connected Successfully");
+  try {
+    await mongoose.connect(
+      "mongodb+srv://krithik-0113:AtN8nXqG9yoxoWom@cluster0.y8z4nih.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    );
+    console.log("Database Connected Successfully");
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 app.listen(3500, () => {
