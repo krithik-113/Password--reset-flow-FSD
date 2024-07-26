@@ -14,10 +14,7 @@ app.use("/api", require("./routes/index"));
 
 Mongoose_Conect_DB().catch((err) => console.log(err));
 async function Mongoose_Conect_DB() {
-  await mongoose.connect(DB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  await mongoose.connect(DB_URL);
   console.log("Database Connected Successfully");
 }
 
