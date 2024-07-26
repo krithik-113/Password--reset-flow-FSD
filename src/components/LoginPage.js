@@ -6,7 +6,7 @@ const LoginPage = () => {
   const [innemail, setInnEmail] = useState("");
   const [innpass, setInnPass] = useState("");
   const API_URL =
-    "http://localhost:3500/api/authenticate"; //POST
+    "https://password-reset-flow-fsd.onrender.com/api/authenticate"; //POST
 
   let [errEmail, setErrEmail] = useState("");
   let [errPass, setErrPass] = useState("");

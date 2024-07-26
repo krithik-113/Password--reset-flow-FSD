@@ -33,13 +33,14 @@ const RegisterNewAC = () => {
       setErrPass(errPass)
     } else {
        axios
-         .post("https://localhost:3500/api/user", {
+         .post("https://password-reset-flow-fsd.onrender.com/api/user", {
            email: email,
            password: pass,
          })
          .then((res) => {
            if (res.data.message === "User already Exists") {
              alert(res.data.message);
+             navigate('/')
            } else {
              alert("Successfully SignUp");
              setEmail("");
